@@ -1,9 +1,9 @@
 NewsReader.Views.FeedShow = Backbone.View.extend({
-  tagName: 'li',
 
-  template: JST['feed_list_item'],
+  template: JST['feed_show'],
 
   render: function () {
+    console.log(this.model);
     var content = this.template({
       feed: this.model
     });
@@ -11,4 +11,5 @@ NewsReader.Views.FeedShow = Backbone.View.extend({
 
     return this;
   }
+
 });
