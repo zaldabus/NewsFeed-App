@@ -12,9 +12,30 @@
  *= require_tree .
  */
 
-.navbar {
+body {
+  font-family: sans-serif;
+  font-weight: 200;
+  background-color: #acc;
+}
+
+body > h1 {
+  margin-left: 10px;
+}
+
+#content {
+  font-size: 14px;
+}
+
+header:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+header {
+  height: 40px;
   background: #aee;
-  border-radius: 3px;
+  border-radius: 100px;
 }
 
 .navlist {
@@ -26,58 +47,55 @@
   margin: 10px;
 }
 
-.navbar:after {
-  clear: both;
-  content: "";
-  display: block;
-}
-
-.logo {
+.navlist > .logo {
   float: left;
   margin: 0;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
-body {
-  font-family: sans-serif;
-}
-
-#content {
-  font-size: 14px;
-}
-
-.list-item {
+.list-item, .sign-out, .submit-form {
   background-color: salmon;
-  border-radius: 4px;
+  border-radius: 100px;
   border: 2px solid black;
   cursor: pointer;
   text-decoration: none;
   font-size: 12px;
+  font-weight: 200;
   padding: 3px;
+  margin-top: -2px;
+}
+
+.list-item:hover, .sign-out:hover, .submit-form:hover {
+  background-color: red;
+  transition: 0.4s;
+}
+
+.list-item {
   display: block;
   width: 50px;
   text-align: center;
   color: black;
+
+  transition: 0.4s;
 }
 
-.list-item:hover {
-  background-color: red;
-  transition: 0.5s;
-}
-
-.sign-out {
-  background: none;
-  cursor: pointer;
-  background-color: salmon;
-  border-radius: 4px;
-  border: 2px solid black;
-  text-decoration: none;
-  font-size: 12px;
-  padding: 3px;
+.sign-out, .submit-form {
   margin: 0;
+  transition: 0.4s;
 }
 
-.sign-out:hover {
-  background-color: red;
-  transition: 0.5s;
+.new_user {
+  margin-left: 15px;
+}
+
+.new_user > input {
+  margin-bottom: 10px;
+}
+
+.input-label {
+  display: block;
+  float: left;
+  width: 80px;
+  margin: 3px 3px;
+  font-weight: 200;
 }
