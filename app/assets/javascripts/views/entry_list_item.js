@@ -2,8 +2,6 @@ NewsReader.Views.EntryListItem = Backbone.View.extend({
 
   tagName: 'li',
 
-  events: {},
-
   template: JST['entry_list_item'],
 
   render: function () {

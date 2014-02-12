@@ -1,4 +1,7 @@
 NewsReader.Views.FeedShow = Backbone.View.extend({
+  initialize: function () {
+    this.listenTo(this.model, "change", this.render);
+  },
 
   tagName: 'ul',
 
@@ -20,6 +23,24 @@ NewsReader.Views.FeedShow = Backbone.View.extend({
     this.$el.append("<br><a href='#'>Back home</a>");
 
     return this;
+  },
+
+  events: {
+    "click .reload": "reloadFeed"
+  },
+
+  reloadFeed: function(event) {
+    var that = this;
+    var newEntries = new NewsReader.Collections.Entries(this.model.id);
+
+    newEntries.fetch({
+      success: function () {
+        that.model.set({ entries: newEntries })
+      },
+      error: function () {
+        alert("ERROWR!");
+      }
+    });
   }
 
 });
