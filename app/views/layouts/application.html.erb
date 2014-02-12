@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="navbar">
+    <ul class="navlist">
+      <h2 class="logo">Feed App</h2>
+      <% if current_user %>
+        <li><%= button_to "Sign Out", session_url, method: :delete %>
+        <li><%= current_user.username %></li>
+      <% else %>
+        <li><a class="list-item" href="<%= new_session_url %>">Sign In</a></li>
+        <li><a class="list-item" href="<%= new_user_url %>">Sign Up</a></li>
+      <% end %>
+    </ul>
+  </header>
 
-<%= yield %>
+  <%= flash[:errors] %>
+  <%= yield %>
 
 </body>
 </html>

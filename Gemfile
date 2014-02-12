@@ -11,11 +11,13 @@ require 'open-uri'
 gem 'jquery-rails'
 gem 'backbone-on-rails'
 gem 'ejs'
+gem 'bcrypt-ruby', require: 'bcrypt'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'annotate'
 end
 
 
