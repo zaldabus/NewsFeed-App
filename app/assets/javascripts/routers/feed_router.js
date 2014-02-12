@@ -17,11 +17,21 @@ NewsReader.Routers.Feeds = Backbone.Router.extend({
   },
 
   show: function (id) {
-    // var feed = new NR.Models.Feed({ id: id })
-    var view = new NewsReader.Views.FeedShow({
-      model: NewsReader.collection.get(id)
+    var that = this;
+    var feed = new NewsReader.Models.Feed({
+      id: id
+    });
+    feed.fetch({
+      success: function () {
+        var view = new NewsReader.Views.FeedShow({
+          model: feed
+        })
+        that._swapView(view);
+      },
+      error: function () {
+        alert("FATAL FUCKING ERROR");
+      }
     })
-    this._swapView(view);
   },
 
   _swapView: function (newView) {

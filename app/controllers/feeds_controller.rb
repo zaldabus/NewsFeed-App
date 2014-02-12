@@ -14,4 +14,10 @@ class FeedsController < ApplicationController
       render :json => { error: "invalid url" }, status: :unprocessable_entity
     end
   end
+
+  def show
+    @feed = Feed.find(params[:id])
+
+    render :json => @feed.as_json(methods: [:entries])
+  end
 end

@@ -1,5 +1,13 @@
 NewsReader.Models.Feed = Backbone.Model.extend({
-  parse: function () {
+  urlRoot: "/feeds",
+
+  parse: function (response) {
+    var entries = new NewsReader.Collections.Entries(
+      response.entries
+    );
+    response.entries = entries;
+
+    return response;
     /*
     - convert nested entry JSON into Entry models
     - make a collection of all entries
